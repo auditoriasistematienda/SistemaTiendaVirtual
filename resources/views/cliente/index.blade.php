@@ -22,9 +22,9 @@
         <div class="table-responsive">
             <table class="table table-hover table-bordered table-sm" id="dataTable" width="100%" cellspacing="0">
                 <thead>
-                    <th>DNI/th>
-                    <th>Nombres</th>
+                    <th>DNI<th>
                     <th>Apellidos</th>
+                    <th>Nombres</th>
                     <th>Opciones</th>
                 </thead>
                 <tbody>
