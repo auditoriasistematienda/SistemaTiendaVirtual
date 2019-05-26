@@ -17,3 +17,4 @@ Route::get('/', function () {
 
 Route::resource('cliente','ClienteController');
 Route::resource('producto','ProductoController');
+
