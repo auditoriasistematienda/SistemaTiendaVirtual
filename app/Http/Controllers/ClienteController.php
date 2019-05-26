@@ -37,7 +37,14 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $cliente = Cliente::create([
+            'cli_dni' => $data['cli_dni'],
+            'cli_apellidos' => $data['cli_apellidos'],
+            'cli_nombres' => $data['cli_nombres'],
+           
+        ]);
+        return redirect()->route('cliente.index')->with('status', 'Cliente agregado correctamente!');
     }
 
     /**
