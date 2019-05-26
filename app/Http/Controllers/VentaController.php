@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Venta;
+use App\DetalleVenta;
 use Illuminate\Http\Request;
 use DB;
 
@@ -41,6 +42,14 @@ class VentaController extends Controller
      */
     public function store(Request $request)
     {
+        /*$this->validate($request,[
+          'ven_idcliente' => 'required',
+          'ven_fecha' => 'required',
+          'ven_total' => 'required'
+        ]);
+        $data = $request->all();
+        print_r(($data['total'][1]));*/
+
         $this->validate($request,[
           'ven_idcliente' => 'required',
           'ven_fecha' => 'required',
@@ -48,6 +57,18 @@ class VentaController extends Controller
         ]);
         $data = $request->all();
         $venta = Venta::create($data);
+
+        $cont = 0;
+        while ($cont < COUNT($data['idproducto'])) {
+          $dv = new DetalleVenta();
+          $dv->dv_idventa = $venta->ven_id;
+          $dv->dv_idproducto = $data['idproducto'][$cont];
+          $dv->dv_cantidad = $data['cantidad'][$cont];
+          $dv->dv_total = $data['total'][$cont];
+          $dv->save();
+          $cont = $cont + 1;
+        }
+
         return redirect()->route('ventas.index')->with('status', 'Venta registrada correctamente!');
     }
 
