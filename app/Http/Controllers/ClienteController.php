@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Cliente;
 use Illuminate\Http\Request;
+use DB;
 
 class ClienteController extends Controller
 {
@@ -14,8 +15,7 @@ class ClienteController extends Controller
      */
     public function index()
     {
-       
-        
+        $data = DB::table('clientes')->get();
         return view('cliente.index',['clientes'=>$data]);
     }
 

@@ -13,7 +13,7 @@
       </div>
     @endif
 </div>
-<form action="{{url('producto')}}" method="POST" class="my-3">
+<form action="{{url('cliente')}}" method="POST" class="my-3">
     @method('POST')
     {{ csrf_field() }}
     <div class="row">
@@ -38,7 +38,7 @@
         <div class="col-xl-12 my-4">
             <div class="form-group">
                 <input type="submit" value="Registrar" class="btn btn-primary">
-                <a href="{{url('producto')}}" class="btn btn-danger">Cancelar</a>
+                <a href="{{url('cliente')}}" class="btn btn-danger">Cancelar</a>
             </div>
         </div>
     </div>
