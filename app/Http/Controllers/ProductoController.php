@@ -37,7 +37,14 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $this->validate($request,[
+        'prod_nombre' => 'required|unique:productos,prod_nombre|min:3',
+        'prod_precio' => 'required|numeric',
+        'prod_stock' => 'required|numeric'
+      ]);
+      $data = $request->all();
+      $prod = Producto::create($data);
+      return redirect()->route('proucto.index')->with('status', 'Producto agregado correctamente!');
     }
 
     /**

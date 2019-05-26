@@ -3,7 +3,7 @@
 <div class="mb-4">
     <div class="row">
         <div class="col-xl-6">
-            <a href="{{url('cliente/create')}}" class="btn btn-primary">Registrar Clientes</a>
+            <a href="{{url('cliente/create')}}" class="btn btn-primary">Registrar Cliente</a>
         </div>
         <div class="col-xl-6">
             @if (session('status'))

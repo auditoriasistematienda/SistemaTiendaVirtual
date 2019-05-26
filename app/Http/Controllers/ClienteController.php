@@ -37,13 +37,13 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
-        $cliente = Cliente::create([
-            'cli_dni' => $data['cli_dni'],
-            'cli_apellidos' => $data['cli_apellidos'],
-            'cli_nombres' => $data['cli_nombres'],
-           
+        $this->validate($request,[
+          'cli_dni' => 'required|unique:clientes,cli_dni|numeric|digits:8',
+          'cli_apellidos' => 'required|max:50|min:3',
+          'cli_nombres' => 'required|max:50|min:3'
         ]);
+        $data = $request->all();
+        $cliente = Cliente::create($data);
         return redirect()->route('cliente.index')->with('status', 'Cliente agregado correctamente!');
     }
 
