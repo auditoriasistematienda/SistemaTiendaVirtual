@@ -15,7 +15,10 @@ class VentaController extends Controller
      */
     public function index()
     {
-        return view('venta.index');
+        $data = DB::table('ventas')
+                    ->join('clientes','cli_id','ventas.ven_idcliente')
+                    ->get();
+        return view('venta.index',['ventas'=>$data]);
     }
 
     /**
@@ -38,7 +41,14 @@ class VentaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+          'ven_idcliente' => 'required',
+          'ven_fecha' => 'required',
+          'ven_total' => 'required'
+        ]);
+        $data = $request->all();
+        $venta = Venta::create($data);
+        return redirect()->route('ventas.index')->with('status', 'Venta registrada correctamente!');
     }
 
     /**

@@ -13,14 +13,14 @@
       </div>
     @endif
 </div>
-<form action="{{url('cita')}}" method="post">
+<form action="{{url('ventas')}}" method="post">
   @method('POST')
   {{ csrf_field() }}
     <div class="row">
         <div class="col-xl-8">
             <div class="form-group">
                 <label>Cliente *</label>
-                <select name="" class="form-control selectpicker" data-live-search="true" required>
+                <select name="ven_idcliente" class="form-control selectpicker" data-live-search="true" required>
                   <option value="" hidden>--- Seleccione ---</option>
                   @foreach($clientes as $cli)
                     <option value="{{$cli->cli_id}}">{{$cli->cli_dni.' - '.$cli->cli_apellidos.', '.$cli->cli_nombres}}</option>
@@ -31,7 +31,7 @@
         <div class="col-xl-4">
             <div class="form-group">
                 <label>Fecha *</label>
-                <input type="date" name="cit_fecha" value="<?php echo date('Y-m-d'); ?>" class="form-control" required readonly>
+                <input type="date" name="ven_fecha" value="<?php echo date('Y-m-d'); ?>" class="form-control" required readonly>
             </div>
         </div>
         <div class="col-xl-4">
@@ -48,19 +48,19 @@
         <div class="col-xl-2">
             <div class="form-group">
                 <label>Cantidad *</label>
-                <input type="number" class="form-control" id="prodcantidad" required>
+                <input type="number" class="form-control" id="prodcantidad">
             </div>
         </div>
         <div class="col-xl-2">
             <div class="form-group">
                 <label>Stock *</label>
-                <input type="number" class="form-control" id="prodstock" required readonly>
+                <input type="number" class="form-control" id="prodstock" readonly>
             </div>
         </div>
         <div class="col-xl-2">
             <div class="form-group">
                 <label>Precio Venta *</label>
-                <input type="number" class="form-control" id="prodprecio" required readonly>
+                <input type="number" class="form-control" id="prodprecio" readonly>
             </div>
         </div>
         <div class="col-xl-2 align-self-center">
@@ -81,7 +81,7 @@
             <th></th>
             <th></th>
             <th></th>
-            <th><h4 id="total">S/. 0.00</h4><input type="hidden" name="total_venta" id="total_venta"></th>
+            <th><h4 id="total">S/. 0.00</h4><input type="hidden" name="ven_total" id="total_venta"></th>
           </tfoot>
         </table>
 
