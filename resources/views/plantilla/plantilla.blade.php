@@ -57,8 +57,8 @@
                   </a>
                   <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                      <a class="collapse-item" href="">Clientes</a>
-                      <a class="collapse-item" href="">Productos</a>
+                      <a class="collapse-item" href="{{url('cliente')}}">Clientes</a>
+                      <a class="collapse-item" href="{{url('producto')}}">Productos</a>
                     </div>
                   </div>
                 </li>
