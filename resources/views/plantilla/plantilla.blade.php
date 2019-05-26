@@ -49,24 +49,18 @@
                     <span>Inicio</span></a>
                 </li>
 
-                <!-- Divider -->
-                <hr class="sidebar-divider">
-
-                <!-- Nav Item - Charts -->
+                <!-- Nav Item - Pages Collapse Menu -->
                 <li class="nav-item">
-                    <a class="nav-link" href="">
-                    <i class="fas fa-fw fa-user"></i>
-                    <span>Clientes</span></a>
-                </li>
-
-                <!-- Divider -->
-                <hr class="sidebar-divider">
-
-                <!-- Nav Item - Charts -->
-                <li class="nav-item">
-                    <a class="nav-link" href="">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Productos</span></a>
+                  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-users"></i>
+                    <span>Mantenimiento</span>
+                  </a>
+                  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                      <a class="collapse-item" href="">Clientes</a>
+                      <a class="collapse-item" href="">Productos</a>
+                    </div>
+                  </div>
                 </li>
 
                 <!-- Divider -->
@@ -82,22 +76,11 @@
                 <!-- Divider -->
                 <hr class="sidebar-divider">
 
-
-                <!-- Nav Item - Pages Collapse Menu -->
+                <!-- Nav Item - Charts -->
                 <li class="nav-item">
-                  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-users"></i>
-                    <span>Empleados</span>
-                  </a>
-                  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                      <h6 class="collapse-header">Planilla:</h6>
-                      <a class="collapse-item" href="">Empleados</a>
-                      <h6 class="collapse-header">Cargos:</h6>
-                      <a class="collapse-item" href="">Admisión</a>
-                      <a class="collapse-item" href="">Médicos</a>
-                    </div>
-                  </div>
+                    <a class="nav-link" href="">
+                    <i class="fas fa-fw fa-book"></i>
+                    <span>Reportes</span></a>
                 </li>
 
                 <!-- Divider -->

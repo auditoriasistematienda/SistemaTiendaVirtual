@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('plantilla.plantilla');
 });
+
+Route::resource('cliente','ClienteController');
+Route::resource('producto','ProductoController');
