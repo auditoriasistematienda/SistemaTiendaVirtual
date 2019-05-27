@@ -41,8 +41,12 @@ class ProductoController extends Controller
     public function store(Request $request)
     {
       $this->validate($request,[
-        'prod_nombre' => 'required|unique:productos,prod_nombre|min:3',
+        'prod_nombre' => 'required|min:100',
+        'prod_slug' => 'required|min:255' ,
+        'prod_descripcion' => 'required|' ,
+        'prod_extract' => 'required|min:255' ,
         'prod_precio' => 'required|numeric',
+        'prod_visible' => 'required|min:20' ,
         'prod_stock' => 'required|numeric'
       ]);
       $data = $request->all();
