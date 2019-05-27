@@ -36,7 +36,8 @@
                         <td>{{$cli->cli_nombres}}</td>
                         <td>
                         <a href="{{url('cliente/'.$cli->cli_id.'/edit')}}" class="btn btn-sm btn-warning">Editar</i> </a> 
-                          <a href="{{url('cliente')}}" class="btn btn-sm btn-danger"> <i class="fa fa-trash"></i> </a>
+                        <a data-toggle="modal" data-target="#modal-delete-{{$cli->cli_id}}" class="btn btn-danger btn-sm" href="">Eliminar</a>
+                        @include('cliente.delete')
                         </td>
                     </tr>
                     @endforeach

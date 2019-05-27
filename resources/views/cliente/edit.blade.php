@@ -9,7 +9,7 @@
         <div class="row">
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h4 class="box-title">Campos Clientes</h4>
+                <h4 class="box-title">Campos Clientes</h4>
                 </div>
                 <form action="{{url('cliente/'.$cliente->cli_id)}}" method="POST">
                     @method('PATCH')
