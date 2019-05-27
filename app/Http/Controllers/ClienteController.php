@@ -64,9 +64,11 @@ class ClienteController extends Controller
      * @param  \App\Cliente  $cliente
      * @return \Illuminate\Http\Response
      */
-    public function edit(Cliente $cliente)
+    public function edit($id)
     {
-        //
+        $cliente = Cliente::findOrFail($id);
+     
+        return view('cliente.edit',['cliente'=>$cliente]);
     }
 
     /**
@@ -76,9 +78,17 @@ class ClienteController extends Controller
      * @param  \App\Cliente  $cliente
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cliente $cliente)
+    public function update(Request $request, $id)
     {
-        //
+        $cliente = Cliente::find($id);
+        $this->validate($request,[
+                'cli_dni' => 'required|unique:clientes,cli_dni,'.$id.',cli_id|numeric|digits:8',
+                'cli_apellidos' => 'required|max:50|min:3',
+                'cli_nombres' => 'required|max:50|min:3'
+        ]);
+
+        $cliente->update($request->all());
+        return redirect()->route('cliente.index')->with('status','Cliente modificado correctamente');
     }
 
     /**
@@ -92,3 +102,6 @@ class ClienteController extends Controller
         //
     }
 }
+
+
+

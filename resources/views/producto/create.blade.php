@@ -19,7 +19,7 @@
     <div class="row">
     <div class="form-group col-md-3">
         <label for="">Categoria *</label>
-        <select name="" id="" class="form-control">
+        <select name="cat_id" id="" class="form-control">
             <option value="" hidden>----Seleccione----</option>
             @foreach($categorias as $cat)
              <option value="{{$cat->cat_id}}">{{$cat->cat_nombre}}</option>
@@ -35,19 +35,19 @@
         <div class="col-xl-3 col-md-6">
             <div class="form-group">
                 <label for="">Abreviatura del Producto *</label>
-                <input type="text" name="prod_nombre" class="form-control" maxlength="50" required value="{{old('prod_nombre')}}">
+                <input type="text" name="prod_slug" class="form-control" maxlength="50" required value="{{old('prod_nombre')}}">
             </div>
         </div>
         <div class="col-xl-5 col-md-6">
             <div class="form-group">
                 <label for="">Descripcion *</label>
-                <input type="text" name="prod_nombre" class="form-control" maxlength="50" required value="{{old('prod_nombre')}}">
+                <input type="text" name="prod_descripcion" class="form-control" maxlength="50" required value="{{old('prod_nombre')}}">
             </div>
         </div>
         <div class="col-xl-5 col-md-6">
             <div class="form-group">
                 <label for="">Descripcion Corta del Producto *</label>
-                <input type="text" name="prod_nombre" class="form-control" maxlength="50" required value="{{old('prod_nombre')}}">
+                <input type="text" name="prod_extract" class="form-control" maxlength="50" required value="{{old('prod_nombre')}}">
             </div>
         </div>
         <div class="col-xl-2 col-md-3">
@@ -59,7 +59,7 @@
         <div class="col-xl-5 col-md-6">
             <div class="form-group">
                 <label for="">Imagen *</label>
-                <input type="text" name="prod_nombre" class="form-control" maxlength="50" required value="{{old('prod_nombre')}}">
+                <input type="text" name="prod_imagen" class="form-control" maxlength="50" required value="{{old('prod_nombre')}}">
             </div>
         </div>
         <div class="col-xl-2 col-md-3">
