@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-05-2019 a las 01:39:30
+-- Tiempo de generación: 27-05-2019 a las 05:25:49
 -- Versión del servidor: 10.1.39-MariaDB
 -- Versión de PHP: 7.3.5
 
@@ -122,17 +122,19 @@ CREATE TABLE `productos` (
   `prod_precio` decimal(6,2) NOT NULL,
   `prod_imagen` varchar(255) NOT NULL,
   `prod_visible` int(11) NOT NULL,
-  `prod_stock` int(11) NOT NULL
+  `prod_stock` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `productos`
 --
 
-INSERT INTO `productos` (`prod_id`, `cat_id`, `prod_nombre`, `prod_slug`, `prod_descripcion`, `prod_extract`, `prod_precio`, `prod_imagen`, `prod_visible`, `prod_stock`) VALUES
-(2, 1, 'Atún Florida Filete', '', '', '', '6.00', '', 0, 47),
-(3, 1, 'Atún Fanny Trozos', '', '', '', '5.50', '', 0, 78),
-(4, 1, 'Arroz Costeño 1kg', '', '', '', '3.50', '', 0, 73);
+INSERT INTO `productos` (`prod_id`, `cat_id`, `prod_nombre`, `prod_slug`, `prod_descripcion`, `prod_extract`, `prod_precio`, `prod_imagen`, `prod_visible`, `prod_stock`, `created_at`, `updated_at`) VALUES
+(2, 1, 'Atún Florida Filete', '', '', '', '6.00', '', 0, 47, '2019-05-27 03:24:23', '0000-00-00 00:00:00'),
+(3, 1, 'Atún Fanny Trozos', '', '', '', '5.50', '', 0, 78, '2019-05-27 03:24:23', '0000-00-00 00:00:00'),
+(4, 1, 'Arroz Costeño 1kg', '', '', '', '3.50', '', 0, 73, '2019-05-27 03:24:23', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
