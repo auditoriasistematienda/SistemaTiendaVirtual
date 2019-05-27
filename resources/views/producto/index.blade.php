@@ -34,7 +34,7 @@
                         <td>S/. {{$prod->prod_precio}}</td>
                         <td>{{$prod->prod_stock}}</td>
                         <td>
-                          <a href="" class="btn btn-sm btn-warning"> <i class="fa fa-edit"></i> </a>
+                          <a href="{{url('producto/'.$prod->prod_id.'/edit')}}" class="btn btn-sm btn-warning"> <i class="fa fa-edit"></i> </a>
                           <a href="" class="btn btn-sm btn-danger"> <i class="fa fa-trash"></i> </a>
                         </td>
                     </tr>
