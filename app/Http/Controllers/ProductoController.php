@@ -44,7 +44,7 @@ class ProductoController extends Controller
       ]);
       $data = $request->all();
       $prod = Producto::create($data);
-      return redirect()->route('proucto.index')->with('status', 'Producto agregado correctamente!');
+      return redirect()->route('producto.index')->with('status', 'Producto agregado correctamente!');
     }
 
     /**
