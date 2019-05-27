@@ -71,9 +71,11 @@ class ProductoController extends Controller
      * @param  \App\Producto  $producto
      * @return \Illuminate\Http\Response
      */
-    public function edit(Producto $producto)
+    public function edit($id)
     {
-        //
+        $producto = Producto::findOrFail($id);
+        $categorias = DB::table('categorias')->get();
+        return view('producto.edit',['producto'=>$producto,'categorias'=>$categorias]);
     }
 
     /**
