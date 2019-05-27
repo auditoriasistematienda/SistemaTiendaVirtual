@@ -43,7 +43,13 @@
                         <td>{{$prod->prod_extract}}</td>
                         <td>S/. {{$prod->prod_precio}}</td>
                         <td>{{$prod->prod_imagen}}</td>
-                        <td>{{$prod->prod_visible}}</td>
+                        <td>
+                            @if($prod->prod_visible == 0)
+                                <span>NO</span>
+                            @elseif($prod->prod_visible == 1)
+                                <span>SI</span>
+                            @endif
+                        </td>
                         <td>{{$prod->prod_stock}}</td>
                         <td>
                           <a href="{{url('producto/'.$prod->prod_id.'/edit')}}" class="btn btn-sm btn-warning"> <i class="fa fa-edit"></i> </a>
