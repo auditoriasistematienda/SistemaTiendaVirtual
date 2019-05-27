@@ -26,7 +26,8 @@ class ProductoController extends Controller
      */
     public function create()
     {
-        return view('producto.create');
+        $categorias = DB::table('categorias')->get();
+        return view('producto.create',['categorias'=>$categorias]);
     }
 
     /**
