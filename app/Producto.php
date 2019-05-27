@@ -10,9 +10,17 @@ class Producto extends Model
   protected $primaryKey = 'prod_id';
   public $timestamps = false;
   protected $fillable = [
-      'prod_nombre',
+  	'cat_id',	
+    'prod_nombre',
+    'prod_slug',
+    'prod_descripcion',
+    'prod_extract',
       'prod_precio',
-      'prod_stock'
+      'prod_imagen',
+      'prod_visible',
+      'prod_stock',
+      'created_at',
+      'updated_at'
   ];
   protected $guarded = [];
 }
