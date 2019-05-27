@@ -22,16 +22,28 @@
         <div class="table-responsive">
             <table class="table table-hover table-bordered table-sm" id="dataTable" width="100%" cellspacing="0">
                 <thead>
+                    <th>Categoria</th>
                     <th>Nombre</th>
+                    <th>Slug</th>
+                    <th>Descripcion</th>
+                    <th>Extract</th>
                     <th>Precio</th>
+                    <th>imagen</th>
+                    <th>visible</th>
                     <th>Stock</th>
                     <th>Opciones</th>
                 </thead>
                 <tbody>
                     @foreach($productos as $prod)
                     <tr>
+                        <td>{{$prod->cat_nombre}}</td>
                         <td>{{$prod->prod_nombre}}</td>
+                        <td>{{$prod->prod_slug}}</td>
+                        <td>{{$prod->prod_descripcion}}</td>
+                        <td>{{$prod->prod_extract}}</td>
                         <td>S/. {{$prod->prod_precio}}</td>
+                        <td>{{$prod->prod_imagen}}</td>
+                        <td>{{$prod->prod_visible}}</td>
                         <td>{{$prod->prod_stock}}</td>
                         <td>
                           <a href="" class="btn btn-sm btn-warning"> <i class="fa fa-edit"></i> </a>

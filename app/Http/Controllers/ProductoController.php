@@ -15,7 +15,9 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        $data = DB::table('productos')->get();
+        $data = DB::table('productos')
+                    ->join ('categorias','categorias.cat_id','productos.cat_id')
+                    ->get();
         return view('producto.index',['productos'=>$data]);
     }
 
