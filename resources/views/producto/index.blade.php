@@ -53,7 +53,8 @@
                         <td>{{$prod->prod_stock}}</td>
                         <td>
                           <a href="{{url('producto/'.$prod->prod_id.'/edit')}}" class="btn btn-sm btn-warning"> <i class="fa fa-edit"></i> </a>
-                          <a href="" class="btn btn-sm btn-danger"> <i class="fa fa-trash"></i> </a>
+                          <a data-toggle="modal" data-target="#modal-delete-{{$prod->prod_id}}" class="btn btn-danger btn-sm" href=""> <i class="fa fa-trash" ></i></a>
+                        @include('producto.delete')
                         </td>
                     </tr>
                     @endforeach

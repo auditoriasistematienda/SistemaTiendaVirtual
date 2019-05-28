@@ -41,12 +41,12 @@ class ProductoController extends Controller
     public function store(Request $request)
     {
       $this->validate($request,[
-        'prod_nombre' => 'required|min:100',
-        'prod_slug' => 'required|min:255' ,
-        'prod_descripcion' => 'required|' ,
-        'prod_extract' => 'required|min:255' ,
+        'prod_nombre' => 'required|max:50',
+        'prod_slug' => 'required|max:50' ,
+        'prod_descripcion' => 'required|max:50' ,
+        'prod_extract' => 'required|max:50' ,
         'prod_precio' => 'required|numeric',
-        'prod_visible' => 'required|min:20' ,
+        'prod_visible' => 'null all',
         'prod_stock' => 'required|numeric'
       ]);
       $data = $request->all();
@@ -74,7 +74,8 @@ class ProductoController extends Controller
     public function edit($id)
     {
         $producto = Producto::findOrFail($id);
-        $categorias = DB::table('categorias')->get();
+        $categorias = DB::table('categorias')
+                    ->get();
         return view('producto.edit',['producto'=>$producto,'categorias'=>$categorias]);
     }
 
@@ -96,8 +97,12 @@ class ProductoController extends Controller
      * @param  \App\Producto  $producto
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Producto $producto)
+    public function destroy(Producto $request, $id)
     {
-        //
+                
+        $producto = Producto::destroy($id);
+        
+        
+        return redirect()->route('producto.index')->with('status', 'Producto eliminado correctamente!');
     }
 }
