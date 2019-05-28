@@ -17,7 +17,7 @@ class VentaController extends Controller
     public function index()
     {
         $data = DB::table('ventas')
-                    ->join('clientes','cli_id','ventas.ven_idcliente')
+                    ->join('clientes','clientes.cli_id','ventas.ven_idcliente')
                     ->get();
         return view('venta.index',['ventas'=>$data]);
     }

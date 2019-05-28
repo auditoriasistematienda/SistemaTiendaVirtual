@@ -32,10 +32,10 @@
                     <tr>
                         <td>{{$ven->ven_fecha}}</td>
                         <td>{{$ven->cli_apellidos.', '.$ven->cli_nombres}}</td>
-                        <td>{{$ven->ven_total}}</td>
+                        <td>S/. {{$ven->ven_total}}</td>
                         <td>
-                          <a href="" class="btn btn-sm btn-warning"> <i class="fa fa-edit"></i> </a>
-                          <a href="" class="btn btn-sm btn-danger"> <i class="fa fa-trash"></i> </a>
+                          <a data-toggle="modal" data-target="#modal-info-{{$ven->ven_id}}" class="btn btn-warning btn-sm" href="">Detalles</a>
+                            @include('venta.detalle')
                         </td>
                     </tr>
                     @endforeach
