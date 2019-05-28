@@ -47,8 +47,8 @@
                         <td>{{$cli->cli_activo}}</td>
                         <td>{{$cli->cli_direccion}}</td>
                         <td>
-                        <a href="{{url('cliente/'.$cli->cli_id.'/edit')}}" class="btn btn-sm btn-warning">Editar</i> </a> 
-                        <a data-toggle="modal" data-target="#modal-delete-{{$cli->cli_id}}" class="btn btn-danger btn-sm" href="">Eliminar</a>
+                        <a href="{{url('cliente/'.$cli->cli_id.'/edit')}}" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i> </a> 
+                        <a data-toggle="modal" data-target="#modal-delete-{{$cli->cli_id}}" class="btn btn-danger btn-sm" href=""><i class="fa fa-trash" ></i></a>
                         @include('cliente.delete')
                         </td>
                     </tr>
