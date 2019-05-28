@@ -46,7 +46,6 @@ class ProductoController extends Controller
         'prod_descripcion' => 'required|max:50' ,
         'prod_extract' => 'required|max:50' ,
         'prod_precio' => 'required|numeric',
-        'prod_visible' => 'null all',
         'prod_stock' => 'required|numeric'
       ]);
       $data = $request->all();
@@ -86,9 +85,20 @@ class ProductoController extends Controller
      * @param  \App\Producto  $producto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Producto $producto)
+    public function update(Request $request, $id)
     {
-        //
+        $prod = Producto::find($id);
+        $this->validate($request,[
+            'prod_nombre' => 'required',
+            'prod_slug' => 'required|max:50' ,
+            'prod_descripcion' => 'required|max:50' ,
+            'prod_extract' => 'required|max:50' ,
+            'prod_precio' => 'required|numeric',
+            'prod_stock' => 'required|numeric'
+        ]);
+        $request->all();
+        $prod->update($request->all());
+        return redirect()->route('producto.index')->with('status', 'Producto editado correctamente!');
     }
 
     /**

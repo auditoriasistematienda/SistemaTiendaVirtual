@@ -13,13 +13,13 @@
       </div>
     @endif
 </div>
-<form action="{{url('producto')}}" method="POST" class="my-3">
-    @method('POST')
+<form action="{{url('producto/'.$producto->prod_id)}}" method="POST" class="my-3">
+    @method('PATCH')
     {{ csrf_field() }}
     <div class="row">
     <div class="form-group col-md-3">
         <label for="">Categoria *</label>
-        <select name="" id="" class="form-control">
+        <select name="cat_id" id="" class="form-control">
             @foreach ($categorias as $cat)
                 @if ($cat->cat_id == $producto->cat_id)
                 <option value="{{$cat->cat_id}}" selected>{{$cat->cat_nombre}}</option> 
@@ -60,7 +60,7 @@
         <div class="col-xl-5 col-md-6">
             <div class="form-group">
                 <label for="">Imagen *</label>
-                <input type="text" name="prod_imagen" class="form-control" maxlength="50" readonly value="{{$producto->prod_imagen}}">
+                <input type="text" name="prod_imagen" class="form-control" maxlength="50" value="{{$producto->prod_imagen}}">
             </div>
         </div>
         <div class="col-xl-2 col-md-3">
