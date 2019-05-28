@@ -69,12 +69,6 @@
                 <input type="text" name="prod_stock" class="form-control" maxlength="4" required value="{{$producto->prod_stock}}" >
             </div>
         </div>
-        <div class="col-xl-2 col-md-3">
-            <div class="form-group">
-                <label for="">visible</label>
-                <input type="text" name="prod_visible" class="form-control" maxlength="4" readonly value="{{$producto->prod_visible}}" >
-            </div>
-        </div>
         <div class="col-xl-12 my-4">
             <div class="form-group">
                 <input type="submit" value="Modificar" class="btn btn-warning">
