@@ -36,7 +36,7 @@
         <div class="col-xl-3 col-md-6">
             <div class="form-group">
             <label for="">Email</label>
-            <input type="text" value="{{$cliente->cli_email}}" name="cli_email" class="form-control">
+            <input type="email" value="{{$cliente->cli_email}}" name="cli_email" class="form-control">
             </div>
         </div>
         <div class="col-xl-3 col-md-6">
