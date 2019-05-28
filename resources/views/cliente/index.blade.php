@@ -26,6 +26,12 @@
                     <th>DNI</th>
                     <th>Apellidos</th>
                     <th>Nombres</th>
+                    <th>Email</th>
+                    <th>User</th>
+                    <th>Password</th>
+                    <th>Tipo</th>
+                    <th>Activo</th>
+                    <th>Dirección</th>
                     <th>Opciones</th>
                 </thead>
                 <tbody>
@@ -34,6 +40,12 @@
                         <td>{{$cli->cli_dni}}</td>
                         <td>{{$cli->cli_apellidos}}</td>
                         <td>{{$cli->cli_nombres}}</td>
+                        <td>{{$cli->cli_email}}</td>
+                        <td>{{$cli->cli_user}}</td>
+                        <td>{{$cli->cli_password}}</td>
+                        <td>{{$cli->cli_tipo}}</td>
+                        <td>{{$cli->cli_activo}}</td>
+                        <td>{{$cli->cli_direccion}}</td>
                         <td>
                         <a href="{{url('cliente/'.$cli->cli_id.'/edit')}}" class="btn btn-sm btn-warning">Editar</i> </a> 
                         <a data-toggle="modal" data-target="#modal-delete-{{$cli->cli_id}}" class="btn btn-danger btn-sm" href="">Eliminar</a>
