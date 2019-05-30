@@ -17,7 +17,6 @@
     <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary">stock</h6>
     </div>
-
 	<div class="card-body">
         <div class="table-responsive">
             <table class="table table-hover table-bordered table-sm" id="dataTable" width="100%" cellspacing="0">
@@ -27,6 +26,7 @@
                     <th>Nombre</th>
                     <th>Stock</th>
             		<th>Detalle</th>
+                    <th>Accione</th>
                 </thead>
                 <tbody>
                     @foreach($stock as $prod)
@@ -36,6 +36,7 @@
                         <td>{{$prod->prod_nombre}}</td>
                         <td>{{$prod->prod_stock}}</td>
                         <td>{{$prod->detalle}}</td>
+                        <td><a href="{{url('stock')}}">ACTUALIZAR</a></td>
                     </tr>
                     @endforeach
                 </tbody>
