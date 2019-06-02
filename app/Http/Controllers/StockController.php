@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Stock;
+use App\Producto;
 use Illuminate\Http\Request;
 use DB;
 
@@ -15,7 +15,8 @@ class StockController extends Controller
      */
     public function index()
     {
-        $data = DB::table('stock')
+        $data = DB::table('productos')
+                    ->join('categorias','categorias.cat_id','productos.cat_id')
                     ->get();
         return view('stock.index',['stock'=>$data]);
     }

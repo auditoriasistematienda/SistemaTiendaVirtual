@@ -25,17 +25,15 @@
                     <th>codigo Categoria</th>
                     <th>Nombre</th>
                     <th>Stock</th>
-            		<th>Detalle</th>
                     <th>Accione</th>
                 </thead>
                 <tbody>
                     @foreach($stock as $prod)
                     <tr>
                         <td>{{$prod->prod_id}}</td>   
-                        <td>{{$prod->cat_id}}</td>                      
+                        <td>{{$prod->cat_nombre}}</td>                      
                         <td>{{$prod->prod_nombre}}</td>
                         <td>{{$prod->prod_stock}}</td>
-                        <td>{{$prod->detalle}}</td>
                         <td><a href="{{url('stock')}}">ACTUALIZAR</a></td>
                     </tr>
                     @endforeach
