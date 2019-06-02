@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Venta;
 use App\DetalleVenta;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use DB;
 
 class VentaController extends Controller
@@ -49,6 +50,9 @@ class VentaController extends Controller
         ]);
         $data = $request->all();
         print_r(($data['total'][1]));*/
+        
+        $mydatos = DB::table('users')
+        ->where('users.id','=',Auth::user()->usuario)->first();
 
         $this->validate($request,[
           'ven_idcliente' => 'required',
@@ -56,7 +60,12 @@ class VentaController extends Controller
           'ven_total' => 'required'
         ]);
         $data = $request->all();
-        $venta = Venta::create($data);
+        $venta = Venta::create([
+            'ven_idcliente' => $data['ven_idcliente'],
+            'ven_fecha' => $data['ven_fecha'],
+            'ven_total' => $data['ven_total'],
+            'ven_idusuario' => $mydatos->id
+        ]);
 
         $cont = 0;
         while ($cont < COUNT($data['idproducto'])) {
@@ -70,6 +79,7 @@ class VentaController extends Controller
         }
 
         return redirect()->route('ventas.index')->with('status', 'Venta registrada correctamente!');
+        
     }
 
     /**

@@ -1,3 +1,7 @@
+<?php
+
+            
+?>
 @extends('plantilla.plantilla')
 @section('contenido')
 <div class="mb-4">
@@ -84,7 +88,6 @@
             <th><h4 id="total">S/. 0.00</h4><input type="hidden" name="ven_total" id="total_venta"></th>
           </tfoot>
         </table>
-
         <div class="col-xl-12 my-4">
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" id="guardar" value="Rgistrar Venta">
