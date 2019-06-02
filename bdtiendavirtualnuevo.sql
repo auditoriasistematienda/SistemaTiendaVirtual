@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.4
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-06-2019 a las 18:15:28
--- Versión del servidor: 10.1.38-MariaDB
--- Versión de PHP: 7.3.3
+-- Tiempo de generación: 30-05-2019 a las 22:28:43
+-- Versión del servidor: 10.1.35-MariaDB
+-- Versión de PHP: 7.2.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -64,9 +66,9 @@ INSERT INTO `categorias` (`cat_id`, `cat_nombre`, `cat_slug`, `cat_descripcion`,
 (23, 'TELEVISORES', 'televisores', 'electrodomesticos', 'varios'),
 (24, 'MENESTRAS', 'menestras', 'menestras', 'varios'),
 (25, 'GOLOSINAS', 'golosinas', 'dulces', 'varios'),
-(26, '', '', '', ''),
-(27, '', '', '', ''),
-(28, '', '', '', '');
+(26, 'Golosinas', 'Golosinas', 'Dulces', 'Varios'),
+(27, 'Golosinas', 'Golosinas', 'Dulces', 'Varios'),
+(28, 'Golosinas', 'Golosinas', 'Dulces', 'Varios');
 
 -- --------------------------------------------------------
 
@@ -118,7 +120,11 @@ INSERT INTO `detalleventas` (`dv_idventa`, `dv_idproducto`, `dv_cantidad`, `dv_t
 (4, 3, 2, '11.00'),
 (8, 2, 3, '18.00'),
 (8, 4, 2, '7.00'),
-(9, 5, 10, '5.00');
+(9, 5, 10, '5.00'),
+(10, 5, 8, '4.00'),
+(11, 3, 10, '55.00'),
+(12, 2055, 100, '140.00'),
+(13, 2056, 498, '7470.00');
 
 --
 -- Disparadores `detalleventas`
@@ -159,9 +165,9 @@ CREATE TABLE `productos` (
 
 INSERT INTO `productos` (`prod_id`, `cat_id`, `prod_nombre`, `prod_slug`, `prod_descripcion`, `prod_extract`, `prod_precio`, `prod_imagen`, `prod_visible`, `prod_stock`, `created_at`, `updated_at`) VALUES
 (2, 1, 'Atún Florida Filete', '', '', '', '6.00', '', 0, 47, '2019-05-27 03:24:23', '0000-00-00 00:00:00'),
-(3, 1, 'Atún Fanny Trozos', '', '', '', '5.50', '', 0, 78, '2019-05-27 03:24:23', '0000-00-00 00:00:00'),
+(3, 1, 'Atún Fanny Trozos', '', '', '', '5.50', '', 0, 68, '2019-05-27 03:24:23', '0000-00-00 00:00:00'),
 (4, 1, 'Arroz Costeño 1kg', '', '', '', '3.50', '', 0, 73, '2019-05-27 03:24:23', '0000-00-00 00:00:00'),
-(5, 1, 'Chupetin Globopop', 'chupt.', 'dulces', 'chupetin', '0.50', 'dnjasndjansjdj', 1, 9, NULL, NULL),
+(5, 1, 'Chupetin Globopop', 'chupt.', 'dulces', 'chupetin', '0.50', 'dnjasndjansjdj', 1, 1, NULL, NULL),
 (6, 6, 'Mermelada de grosellas de la abuela', 'Mer', ' la abuela', 'Condimentos', '25.00', 'Merme', 0, 120, '2019-05-27 03:24:23', '2019-05-27 03:24:23'),
 (7, 7, 'Peras secas orgánicas del tío Bob', 'Per', 'el tío Bob', 'Frutas/Verduras', '30.00', 'Peras', 0, 15, '2019-05-27 03:24:23', '2019-05-27 03:24:23'),
 (8, 8, 'Salsa de arándanos Northwoods', 'Sal', 'Northwoods', 'Condimentos', '40.00', 'Salsa', 0, 6, '2019-05-27 03:24:23', '2019-05-27 03:24:23'),
@@ -2085,43 +2091,51 @@ INSERT INTO `productos` (`prod_id`, `cat_id`, `prod_nombre`, `prod_slug`, `prod_
 (2040, 22, 'Salsa verde original Frankfurter 1968', 'Sal', 'urter 1968', 'Condimentos', '1980.00', 'Salsa', 0, 52, '2019-05-27 03:24:23', '2019-05-27 03:24:23'),
 (2041, 8, 'Salsa verde original Frankfurter 1969', 'Sal', 'urter 1969', 'Condimentos', '1981.00', 'Salsa', 0, 55, '2019-05-27 03:24:23', '2019-05-27 03:24:23'),
 (2042, 25, 'Salsa verde original Frankfurter 1970', 'Sal', 'urter 1970', 'Condimentos', '1982.00', 'Salsa', 0, 52, '2019-05-27 03:24:23', '2019-05-27 03:24:23'),
-(2043, 17, 'Salsa verde original Frankfurter 1971', 'Sal', 'urter 1971', 'Condimentos', '1983.00', 'Salsa', 0, 35, '2019-05-27 03:24:23', '2019-05-27 03:24:23');
+(2043, 17, 'Salsa verde original Frankfurter 1971', 'Sal', 'urter 1971', 'Condimentos', '1983.00', 'Salsa', 0, 35, '2019-05-27 03:24:23', '2019-05-27 03:24:23'),
+(2047, 4, 'Condon Durex', 'coca cola', 'bebida helada', 'Bebida', '1.50', 'descarga.jpg', 1, 50, NULL, NULL),
+(2053, 1, 'a', 's', 's', 's', '100.00', 'ss', 1, 100, NULL, NULL),
+(2054, 18, 'd', 'd', 'd', 'd', '15.00', 'c', 1, 10, NULL, NULL),
+(2055, 2, 'INKA KOLA', 'KOLA', 'KOLA', 'KOLA', '1.40', 'RETORNO.jpg', 1, 50, NULL, NULL),
+(2056, 2, 'COCA', 'COCA', 'COCA', 'COCA', '15.00', 'descarga (1).jpg', 1, 2, NULL, NULL),
+(2057, 2, 'COCO', 'COCO', 'COCO', 'COCO', '19.00', 'RETORNO.jpg', 1, 1200, NULL, NULL),
+(2058, 2, 'PILSEN', 'PILSEN', 'PILSEN', 'PILSEN', '150.00', 'pos.jpg', 1, 190, NULL, NULL),
+(2059, 3, 'A', 'A', 'A', 'A', '1.00', 'SIGUI.jpg', 1, 12, NULL, NULL),
+(2060, 2, 'Condon Durex', 'coca cola', 'bebida helada', 'Bebida', '1.50', 'RETORNO.jpg', 1, 50, NULL, NULL);
+
+--
+-- Disparadores `productos`
+--
+DELIMITER $$
+CREATE TRIGGER `stock` BEFORE INSERT ON `productos` FOR EACH ROW INSERT into stock(cat_id,prod_id,prod_nombre,prod_stock,detalle) VALUES (new.cat_id, new.prod_id ,new.prod_nombre, new.prod_stock, NOW())
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `users`
+-- Estructura de tabla para la tabla `stock`
 --
 
-CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
-  `usuario` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE `stock` (
+  `prod_id` int(100) NOT NULL,
+  `prod_nombre` varchar(100) NOT NULL,
+  `prod_stock` int(100) NOT NULL,
+  `detalle` datetime NOT NULL,
+  `cat_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `users`
+-- Volcado de datos para la tabla `stock`
 --
 
-INSERT INTO `users` (`id`, `usuario`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(25457065, '25457065', '$2y$10$eF0Uwwd7tkWF7.HBYnQm3.rpOSEwrk9PDxDOVlYl50p4S9jkXPJGG', NULL, '2019-05-05 01:53:28', '2019-05-05 01:53:28'),
-(25754054, '25754054', '$2y$10$16xY.Jo1zYYj0iaY7j57RecAXWSAWR5YqQRtcfm/vwiBtxkKDNdVq', NULL, '2019-05-07 18:23:06', '2019-05-07 18:23:06'),
-(25774850, '25774850', '$2y$10$qo1nacRUROS6UoaNtw2XP.vMo.lK6L6WRrn23El..JeN7TSPwfvBe', NULL, '2019-05-05 06:18:01', '2019-05-05 06:18:01'),
-(25840824, '25840824', '$2y$10$ROcGXcrdawx6wK56w3OudOXXBmIjGy2V75ioiQJWHdQ4KY0EtScHi', NULL, '2019-05-12 15:22:31', '2019-05-12 15:22:31'),
-(45070560, '45070560', '$2y$10$9Ta5.Odv4qCJkBIZaJSFJuZKthgc8VsbebRsSUuItulQX9IkILpwe', NULL, '2019-05-05 06:22:31', '2019-05-05 06:22:31'),
-(45070645, '45070645', '$2y$10$NeXBXdeQRRCfcqMJJrmQvurgV0wFN5MZ0GmwDo7RlPBIb4H6HZ4kq', NULL, '2019-05-04 23:49:23', '2019-05-04 23:49:23'),
-(45086045, '45086045', '$2y$10$oOa3jZPkWcecjA5bei4PxuLus/L/ZKBqC/mLt4sE3qVhvQMmJ0Blm', NULL, '2019-05-06 01:07:07', '2019-05-06 01:07:07'),
-(48509790, '48509790', '$2y$10$ToWNaOcHfFcgq4KQju5eau64YFScN4FwtPdCOmD.MSQGI5eURWATi', NULL, '2019-05-05 03:08:42', '2019-05-05 03:08:42'),
-(70327292, '70327292', '$2y$10$DtXHwxFGI5wNKMD6YLFV9ex8hJXeLN9zVpKkeIwuRiHcxYL8UNAY6', NULL, '2019-05-20 22:34:39', '2019-05-20 22:34:39'),
-(70327395, '70327395', '$2y$10$TEoy4sjPDIs82.zCkWtYvuBEykJ6dhy/2XW6ZaH1D41QuGDSk5yv.', NULL, '2019-05-05 01:49:29', '2019-05-05 01:49:29'),
-(70345671, '70345671', '$2y$10$4pdZj0.V8HVNJBQpKDjI5.v1lB92vZey0fngvwcwifEAxrEU7oRsW', NULL, '2019-05-05 07:33:08', '2019-05-05 07:33:08'),
-(73666122, '73666122', '$2y$10$XYKnMUZOJJJDOOHv10OZFesjB2vMjlhJRxBlmzlc.ivEYkf4ryQ/C', NULL, '2019-05-05 01:43:56', '2019-05-05 01:43:56'),
-(74078065, '74078065', '$2y$10$jQov4472WLvc8g16PzW7lObvwtMJjNuEZnNjvr8zbd2al3OxZ4wYe', NULL, '2019-05-05 06:43:47', '2019-05-05 06:43:47'),
-(75054046, '75054046', '$2y$10$fl90zumdcThZa6MyhYhQQOg6sysJnvI.y2zz7blYjVNlOG1xMsCQy', NULL, '2019-05-04 23:44:13', '2019-05-04 23:44:13'),
-(75200120, '75200120', '$2y$10$Aa3UVU7eNBy.A8zuFOgFCOz9R363ZHcZCdI34eSr82Kk4rBH2XaQ.', NULL, '2019-05-04 21:42:59', '2019-05-04 21:42:59');
+INSERT INTO `stock` (`prod_id`, `prod_nombre`, `prod_stock`, `detalle`, `cat_id`) VALUES
+(2054, 'd', 10, '2019-05-30 01:18:59', 18),
+(2055, 'INKA KOLA', 150, '2019-05-30 01:20:25', 2),
+(2056, 'COCA', 500, '2019-05-30 01:25:34', 2),
+(2058, 'COCO', 1200, '2019-05-30 01:37:59', 2),
+(2059, 'PILSEN', 190, '2019-05-30 01:49:38', 2),
+(2060, 'A', 12, '2019-05-30 02:11:43', 3),
+(2061, 'Condon Durex', 50, '2019-05-30 15:25:44', 2);
 
 -- --------------------------------------------------------
 
@@ -2144,7 +2158,11 @@ CREATE TABLE `ventas` (
 INSERT INTO `ventas` (`ven_id`, `ven_idcliente`, `ven_fecha`, `ven_envio`, `ven_total`) VALUES
 (4, 2, '2019-05-26', '0.00', '11.00'),
 (8, 1, '2019-05-26', '0.00', '25.00'),
-(9, 1, '2019-05-27', NULL, '5.00');
+(9, 1, '2019-05-27', NULL, '5.00'),
+(10, 3, '2019-05-30', NULL, '4.00'),
+(11, 2, '2019-05-30', NULL, '55.00'),
+(12, 2, '2019-05-30', NULL, '140.00'),
+(13, 2, '2019-05-30', NULL, '7470.00');
 
 --
 -- Índices para tablas volcadas
@@ -2178,10 +2196,10 @@ ALTER TABLE `productos`
   ADD KEY `cat_id` (`cat_id`);
 
 --
--- Indices de la tabla `users`
+-- Indices de la tabla `stock`
 --
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `stock`
+  ADD PRIMARY KEY (`prod_id`);
 
 --
 -- Indices de la tabla `ventas`
@@ -2199,21 +2217,31 @@ ALTER TABLE `ventas`
 --
 ALTER TABLE `categorias`
   MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+
 --
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
   MODIFY `cli_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `prod_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2044;
+  MODIFY `prod_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2061;
+
+--
+-- AUTO_INCREMENT de la tabla `stock`
+--
+ALTER TABLE `stock`
+  MODIFY `prod_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2062;
+
 --
 -- AUTO_INCREMENT de la tabla `ventas`
 --
 ALTER TABLE `ventas`
-  MODIFY `ven_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `ven_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
 --
 -- Restricciones para tablas volcadas
 --
@@ -2236,6 +2264,7 @@ ALTER TABLE `productos`
 --
 ALTER TABLE `ventas`
   ADD CONSTRAINT `ventas_ibfk_1` FOREIGN KEY (`ven_idcliente`) REFERENCES `clientes` (`cli_id`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
