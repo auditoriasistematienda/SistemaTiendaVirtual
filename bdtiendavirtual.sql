@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-05-2019 a las 05:25:49
--- Versión del servidor: 10.1.39-MariaDB
--- Versión de PHP: 7.3.5
+-- Tiempo de generación: 02-06-2019 a las 18:15:28
+-- Versión del servidor: 10.1.38-MariaDB
+-- Versión de PHP: 7.3.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -139,6 +139,42 @@ INSERT INTO `productos` (`prod_id`, `cat_id`, `prod_nombre`, `prod_slug`, `prod_
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `usuario` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `users`
+--
+
+INSERT INTO `users` (`id`, `usuario`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(25457065, '25457065', '$2y$10$eF0Uwwd7tkWF7.HBYnQm3.rpOSEwrk9PDxDOVlYl50p4S9jkXPJGG', NULL, '2019-05-05 01:53:28', '2019-05-05 01:53:28'),
+(25754054, '25754054', '$2y$10$16xY.Jo1zYYj0iaY7j57RecAXWSAWR5YqQRtcfm/vwiBtxkKDNdVq', NULL, '2019-05-07 18:23:06', '2019-05-07 18:23:06'),
+(25774850, '25774850', '$2y$10$qo1nacRUROS6UoaNtw2XP.vMo.lK6L6WRrn23El..JeN7TSPwfvBe', NULL, '2019-05-05 06:18:01', '2019-05-05 06:18:01'),
+(25840824, '25840824', '$2y$10$ROcGXcrdawx6wK56w3OudOXXBmIjGy2V75ioiQJWHdQ4KY0EtScHi', NULL, '2019-05-12 15:22:31', '2019-05-12 15:22:31'),
+(45070560, '45070560', '$2y$10$9Ta5.Odv4qCJkBIZaJSFJuZKthgc8VsbebRsSUuItulQX9IkILpwe', NULL, '2019-05-05 06:22:31', '2019-05-05 06:22:31'),
+(45070645, '45070645', '$2y$10$NeXBXdeQRRCfcqMJJrmQvurgV0wFN5MZ0GmwDo7RlPBIb4H6HZ4kq', NULL, '2019-05-04 23:49:23', '2019-05-04 23:49:23'),
+(45086045, '45086045', '$2y$10$oOa3jZPkWcecjA5bei4PxuLus/L/ZKBqC/mLt4sE3qVhvQMmJ0Blm', NULL, '2019-05-06 01:07:07', '2019-05-06 01:07:07'),
+(48509790, '48509790', '$2y$10$ToWNaOcHfFcgq4KQju5eau64YFScN4FwtPdCOmD.MSQGI5eURWATi', NULL, '2019-05-05 03:08:42', '2019-05-05 03:08:42'),
+(70327292, '70327292', '$2y$10$DtXHwxFGI5wNKMD6YLFV9ex8hJXeLN9zVpKkeIwuRiHcxYL8UNAY6', NULL, '2019-05-20 22:34:39', '2019-05-20 22:34:39'),
+(70327395, '70327395', '$2y$10$TEoy4sjPDIs82.zCkWtYvuBEykJ6dhy/2XW6ZaH1D41QuGDSk5yv.', NULL, '2019-05-05 01:49:29', '2019-05-05 01:49:29'),
+(70345671, '70345671', '$2y$10$4pdZj0.V8HVNJBQpKDjI5.v1lB92vZey0fngvwcwifEAxrEU7oRsW', NULL, '2019-05-05 07:33:08', '2019-05-05 07:33:08'),
+(73666122, '73666122', '$2y$10$XYKnMUZOJJJDOOHv10OZFesjB2vMjlhJRxBlmzlc.ivEYkf4ryQ/C', NULL, '2019-05-05 01:43:56', '2019-05-05 01:43:56'),
+(74078065, '74078065', '$2y$10$jQov4472WLvc8g16PzW7lObvwtMJjNuEZnNjvr8zbd2al3OxZ4wYe', NULL, '2019-05-05 06:43:47', '2019-05-05 06:43:47'),
+(75054046, '75054046', '$2y$10$fl90zumdcThZa6MyhYhQQOg6sysJnvI.y2zz7blYjVNlOG1xMsCQy', NULL, '2019-05-04 23:44:13', '2019-05-04 23:44:13'),
+(75200120, '75200120', '$2y$10$Aa3UVU7eNBy.A8zuFOgFCOz9R363ZHcZCdI34eSr82Kk4rBH2XaQ.', NULL, '2019-05-04 21:42:59', '2019-05-04 21:42:59');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `ventas`
 --
 
@@ -188,6 +224,12 @@ ALTER TABLE `detalleventas`
 ALTER TABLE `productos`
   ADD PRIMARY KEY (`prod_id`),
   ADD KEY `cat_id` (`cat_id`);
+
+--
+-- Indices de la tabla `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `ventas`
