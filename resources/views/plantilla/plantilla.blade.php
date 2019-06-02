@@ -121,7 +121,16 @@
                         <ul class="navbar-nav ml-auto">
 
                             <!-- Nav Item - User Information -->
-
+                            <li class="nav-item dropdown no-arrow">
+                                <a class="btn" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Cerrar Sesión
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                            </li>
 
                         </ul>
 

@@ -12,10 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('plantilla.plantilla');
+    return view('auth.login');
 });
 
 Route::resource('cliente','ClienteController');
 Route::resource('producto','ProductoController');
 Route::resource('ventas','VentaController');
 Route::resource('stock','StockController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
