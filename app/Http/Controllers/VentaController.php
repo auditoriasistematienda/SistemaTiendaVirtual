@@ -7,6 +7,8 @@ use App\DetalleVenta;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use DB;
+use App\Cliente;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class VentaController extends Controller
 {
@@ -15,6 +17,15 @@ class VentaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function exportPdf()
+    {
+        $venta = venta::get();
+        $pdf     =  PDF::loadview('pdf.venta',compact('venta'));
+
+        return $pdf->download('venta-list.pdf');
+    }
+
+
     public function index()
     {
         $data = DB::table('ventas')

@@ -31,7 +31,7 @@
                     @foreach($ventas as $ven)
                     <tr>
                         <td>{{$ven->ven_fecha}}</td>
-                        <td>{{$ven->cli_apellidos.', '.$ven->cli_nombres}}</td>
+                        <td>{{$ven->cli_apellidos.','.$ven->cli_nombres}}</td>
                         <td>S/. {{$ven->ven_total}}</td>
                         <td>
                           <a data-toggle="modal" data-target="#modal-info-{{$ven->ven_id}}" class="btn btn-warning btn-sm" href="">Detalles</a>

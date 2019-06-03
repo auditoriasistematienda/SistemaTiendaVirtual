@@ -82,6 +82,15 @@
                     <i class="fas fa-fw fa-file-pdf"></i>
                     <span>Reportes</span></a>
                 </li>
+                                <!-- Divider -->
+                <hr class="sidebar-divider">
+
+                <!-- Nav Item - Charts -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url('stock')}}">
+                    <i class="fas fa-fw fa-book"></i>
+                    <span>Stock</span></a>
+                </li>
 
                 <!-- Divider -->
                 <hr class="sidebar-divider">

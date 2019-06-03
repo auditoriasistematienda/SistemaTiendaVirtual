@@ -52,7 +52,7 @@
         </div>
     </div>
             <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Reporte de</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Reporte de Stock</h6>
     </div>
 
     <div class="card-body">
@@ -63,14 +63,14 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><a href="" target="_blank" class="btn btn-danger btn-sm"><i class="fa fa-file-pdf"> DESCARGAR PDF </i></a>     </td>
+                        <td><a href="{{route('stock.pdf')}}" target="_blank" class="btn btn-danger btn-sm"><i class="fa fa-file-pdf"> DESCARGAR PDF </i></a>     </td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
             <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Reporte de </h6>
+        <h6 class="m-0 font-weight-bold text-primary">Reporte de Ventas </h6>
     </div>
 
     <div class="card-body">
@@ -81,7 +81,7 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><a href="" target="_blank" class="btn btn-danger btn-sm"><i class="fa fa-file-pdf"> DESCARGAR PDF </i></a>     </td>
+                        <td><a href="{{route('venta.pdf')}}" target="_blank" class="btn btn-danger btn-sm"><i class="fa fa-file-pdf"> DESCARGAR PDF </i></a>     </td>
                     </tr>
                 </tbody>
             </table>
