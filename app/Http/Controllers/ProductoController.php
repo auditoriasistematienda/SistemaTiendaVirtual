@@ -109,10 +109,21 @@ class ProductoController extends Controller
      */
     public function destroy(Producto $request, $id)
     {
-                
         $producto = Producto::destroy($id);
-        
-        
         return redirect()->route('producto.index')->with('status', 'Producto eliminado correctamente!');
     }
+
+    public function visibilidad($id)
+    {
+        $producto = Producto::find($id);
+        if($producto->prod_visible == 0){
+            $producto->prod_visible = 1;
+            $producto->save();
+        } else{
+            $producto->prod_visible = 0;
+            $producto->save();
+        }
+        return redirect()->route('producto.index')->with('status', 'Producto actualizado correctamente!');
+    }
+
 }

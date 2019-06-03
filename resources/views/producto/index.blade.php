@@ -30,6 +30,7 @@
                     <th>Precio</th>
                     <th>imagen</th>
                     <th>Stock</th>
+                    <th>Visibilidad</th>
                     <th>Opciones</th>
                 </thead>
                 <tbody>
@@ -42,8 +43,14 @@
                         <td>{{$prod->prod_extract}}</td>
                         <td>S/. {{$prod->prod_precio}}</td>
                         <td>{{$prod->prod_imagen}}</td>
-
                         <td>{{$prod->prod_stock}}</td>
+                        <td class="text-center">
+                            @if ($prod->prod_visible === 1)
+                                <a href="{{url('visibilidad/'.$prod->prod_id)}}" class="btn btn-light">Ocultar</a>
+                            @elseif($prod->prod_visible === 0)
+                                <a href="{{url('visibilidad/'.$prod->prod_id)}}" class="btn btn-info">Publicar</a>
+                            @endif
+                        </td>
                         <td>
                           <a href="{{url('producto/'.$prod->prod_id.'/edit')}}" class="btn btn-sm btn-warning"> <i class="fa fa-edit"></i> </a>
                           <a data-toggle="modal" data-target="#modal-delete-{{$prod->prod_id}}" class="btn btn-danger btn-sm" href=""> <i class="fa fa-trash" ></i></a>

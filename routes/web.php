@@ -20,6 +20,9 @@ Route::resource('producto','ProductoController');
 Route::resource('ventas','VentaController');
 Route::resource('stock','StockController');
 
+//Ruta para cambiar visibilidad
+Route::get('visibilidad/{id}','ProductoController@visibilidad');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
