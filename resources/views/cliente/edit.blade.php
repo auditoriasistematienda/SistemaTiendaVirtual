@@ -39,34 +39,10 @@
             <input type="email" value="{{$cliente->cli_email}}" name="cli_email" class="form-control">
             </div>
         </div>
-        <div class="col-xl-3 col-md-6">
-            <div class="form-group">
-            <label for="">Tipo</label>
-            <input type="text" value="{{$cliente->cli_tipo}}" name="cli_tipo" class="form-control">
-            </div>
-        </div>
-        <div class="col-xl-2 col-md-6">
-            <div class="form-group">
-            <label for="">Activo</label>
-            <input type="text" value="{{$cliente->cli_activo}}" name="cli_activo" class="form-control">
-            </div>
-        </div>
         <div class="col-xl-5 col-md-6">
             <div class="form-group">
             <label for="">Dirección</label>
             <input type="text" value="{{$cliente->cli_direccion}}" name="cli_direccion" class="form-control">
-            </div>
-        </div>
-        <div class="col-xl-3 col-md-6">
-            <div class="form-group">
-            <label for="">User</label>
-            <input type="text" value="{{$cliente->cli_user}}" name="cli_user" class="form-control">
-            </div>
-        </div>
-        <div class="col-xl-3 col-md-6">
-            <div class="form-group">
-            <label for="">Password</label>
-            <input type="password" value="{{$cliente->cli_password}}" name="cli_password" class="form-control">
             </div>
         </div>
         <div class="col-xl-2 col-md-20">

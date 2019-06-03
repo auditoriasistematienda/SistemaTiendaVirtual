@@ -50,14 +50,8 @@ class ClienteController extends Controller
           'cli_dni' => 'required|unique:clientes,cli_dni|numeric|digits:8',
           'cli_apellidos' => 'required|max:50|min:3',
           'cli_nombres' => 'required|max:50|min:3',
-          'cli_email' => 'required|max:50|min:3',
-          'cli_user' => 'nullable|max:70|min:3',
-          'cli_password' => 'nullable|max:70',
-          'cli_tipo' => 'nullable|min:5|max:30',
-          'cli_activo' => 'numeric|min:0|max:1',
+          'cli_email' => 'nullable|max:50|min:3',
           'cli_direccion' => 'nullable|min:7|max:13'
-      
-          
         ]);
         $data = $request->all();
         $cliente = Cliente::create($data);

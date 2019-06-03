@@ -35,40 +35,16 @@
                 <input type="text" name="cli_nombres" id="txtnombres" class="form-control" maxlength="50" required style="text-transform:uppercase;" value="{{old('cli_nombres')}}" >
             </div>
         </div>
-        <div class="col-xl-2 col-md-6">
+        <div class="col-xl-4 col-md-6">
             <div class="form-group">
                 <label for="">Email *</label>
                 <input type="text" name="cli_email" id="txtemail" class="form-control" maxlength="50" value="{{old('cli_email')}}">
             </div>
         </div>
-        <div class="col-xl-5 col-md-6">
-            <div class="form-group">
-                <label for="">Tipo*</label>
-                <input type="text" name="cli_tipo" id="txttipo" class="form-control" maxlength="50" required style="text-transform:uppercase;" value="{{old('cli_tipo')}}">
-            </div>
-        </div>
-        <div class="col-xl-5 col-md-6">
-            <div class="form-group">
-                <label for="">Activo*</label>
-                <input type="text" name="cli_activo" id="txtactivo" class="form-control" maxlength="50" required style="text-transform:uppercase;" value="{{old('cli_activo')}}" >
-            </div>
-        </div>
-        <div class="col-xl-2 col-md-6">
+        <div class="col-xl-8 col-md-6">
             <div class="form-group">
                 <label for="">Dirección *</label>
                 <input type="text" name="cli_direccion" id="txtdireccion" class="form-control"  maxlength="50" value="{{old('cli_direccion')}}">
-            </div>
-        </div>
-        <div class="col-xl-5 col-md-6">
-            <div class="form-group">
-                <label for="">User*</label>
-                <input type="text" name="cli_user" id="txtuser" class="form-control" maxlength="10" required style="text-transform:uppercase;" value="{{old('cli_user')}}">
-            </div>
-        </div>
-        <div class="col-xl-5 col-md-6">
-            <div class="form-group">
-                <label for="">Password*</label>
-                <input type="password" name="cli_password" id="txtpassword" class="form-control" maxlength="10" required style="text-transform:uppercase;" value="{{old('cli_password')}}" >
             </div>
         </div>
         <div class="col-xl-12 my-4">

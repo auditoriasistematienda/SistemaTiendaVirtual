@@ -14,11 +14,8 @@ class Cliente extends Model
       'cli_apellidos',
       'cli_nombres',
       'cli_email',
-      'cli_user',
-      'cli_password',
-      'cli_tipo',
-      'cli_activo',
-      'cli_direccion'
+      'cli_direccion',
+      'cli_telefono'
   ];
   protected $guarded = [];
 }
