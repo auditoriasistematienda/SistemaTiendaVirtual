@@ -59,7 +59,7 @@
         <div class="col-xl-5 col-md-6">
             <div class="form-group">
                 <label for="">Imagen *</label>
-                <input type="file" name="prod_imagen" class="form-control" maxlength="50" required value="{{old('prod_imagen')}}">
+                <input type="text" name="prod_imagen" class="form-control" maxlength="2000" required value="{{old('prod_imagen')}}">
             </div>
         </div>
         <div class="col-xl-2 col-md-3">

@@ -42,7 +42,7 @@
                         <td>{{$prod->prod_descripcion}}</td>
                         <td>{{$prod->prod_extract}}</td>
                         <td>S/. {{$prod->prod_precio}}</td>
-                        <td>{{$prod->prod_imagen}}</td>
+                        <td> <img src="{{$prod->prod_imagen}}" height="35px"> </td>
                         <td>{{$prod->prod_stock}}</td>
                         <td class="text-center">
                             @if ($prod->prod_visible === 1)
