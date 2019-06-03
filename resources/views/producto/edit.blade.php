@@ -60,7 +60,7 @@
         <div class="col-xl-5 col-md-6">
             <div class="form-group">
                 <label for="">Imagen *</label>
-                <input type="text" name="prod_imagen" class="form-control" maxlength="50" value="{{$producto->prod_imagen}}">
+                <input type="text" name="prod_imagen" class="form-control" maxlength="2000" value="{{$producto->prod_imagen}}">
             </div>
         </div>
         <div class="col-xl-2 col-md-3">
