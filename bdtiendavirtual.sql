@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-06-2019 a las 21:11:48
--- Versión del servidor: 10.1.39-MariaDB
--- Versión de PHP: 7.3.5
+-- Tiempo de generación: 04-06-2019 a las 00:05:54
+-- Versión del servidor: 10.1.38-MariaDB
+-- Versión de PHP: 7.3.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -54,9 +54,9 @@ CREATE TABLE `clientes` (
   `cli_dni` varchar(8) NOT NULL,
   `cli_apellidos` varchar(100) NOT NULL,
   `cli_nombres` varchar(100) NOT NULL,
-  `cli_email` varchar(100) NOT NULL,
+  `cli_email` varchar(100) DEFAULT NULL,
   `cli_direccion` text,
-  `cli_telefono` varchar(9) NOT NULL
+  `cli_telefono` varchar(9) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -67,7 +67,9 @@ INSERT INTO `clientes` (`cli_id`, `cli_dni`, `cli_apellidos`, `cli_nombres`, `cl
 (1, '11111111', 'MENDOZA QUISPE', 'PERCY JULIO', '', '', ''),
 (2, '45076456', 'CAMA CORREA', 'KELVIN', '', '', ''),
 (3, '25416070', 'CEPEDA BURGOS', 'REBECA LEONOR', '', '', ''),
-(4, '45076845', 'RAMIREZ SALDAÑA', 'MONICA', '', '', '');
+(4, '45076845', 'RAMIREZ SALDAÑA', 'MONICA', '', '', ''),
+(5, '70460456', 'PAZOS', 'MENTOR', NULL, 'troca', NULL),
+(6, '40545405', 'DUARTE', 'CARLOS', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -123,7 +125,7 @@ CREATE TABLE `productos` (
   `prod_extract` varchar(255) NOT NULL,
   `prod_precio` decimal(6,2) NOT NULL,
   `prod_imagen` varchar(255) NOT NULL,
-  `prod_visible` int(11) NOT NULL,
+  `prod_visible` int(11) NOT NULL DEFAULT '1',
   `prod_stock` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -136,7 +138,8 @@ CREATE TABLE `productos` (
 INSERT INTO `productos` (`prod_id`, `cat_id`, `prod_nombre`, `prod_slug`, `prod_descripcion`, `prod_extract`, `prod_precio`, `prod_imagen`, `prod_visible`, `prod_stock`, `created_at`, `updated_at`) VALUES
 (2, 1, 'Atún Florida Filete', '', '', '', '6.00', '', 0, 32, '2019-05-27 03:24:23', '0000-00-00 00:00:00'),
 (3, 1, 'Atún Fanny Trozos', '', '', '', '5.50', '', 0, 63, '2019-05-27 03:24:23', '0000-00-00 00:00:00'),
-(4, 1, 'Arroz Costeño 1kg', '', '', '', '3.50', '', 0, 60, '2019-05-27 03:24:23', '0000-00-00 00:00:00');
+(4, 1, 'Arroz Costeño 1kg', '', '', '', '3.50', '', 0, 60, '2019-05-27 03:24:23', '0000-00-00 00:00:00'),
+(5, 1, 'condon', 'condon', 'condon', 'condon', '1.00', 'descarga.jpg', 1, 100, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -249,13 +252,13 @@ ALTER TABLE `categorias`
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `cli_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `cli_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `prod_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `prod_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `ventas`
