@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Producto;
 use Illuminate\Http\Request;
 use DB;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class StockController extends Controller
 {
@@ -86,4 +87,5 @@ class StockController extends Controller
     {
         //
     }
+    
 }
