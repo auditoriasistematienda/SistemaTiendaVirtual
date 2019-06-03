@@ -17,8 +17,7 @@ class ProductoController extends Controller
     public function exportPdf()
     {
         $producto = producto::get();
-        $pdf     =  PDF::loadview('pdf.producto',compact('producto'));
-
+        $pdf  =  PDF::loadview('pdf.producto',compact('producto'));
         return $pdf->download('producto-list.pdf');
     }
 
