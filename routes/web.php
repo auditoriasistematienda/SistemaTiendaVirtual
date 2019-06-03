@@ -19,6 +19,8 @@ Route::resource('cliente','ClienteController');
 Route::resource('producto','ProductoController');
 Route::resource('ventas','VentaController');
 Route::resource('stock','StockController');
+Route::resource('reportes','ReportesController');
+
 
 //Ruta para cambiar visibilidad
 Route::get('visibilidad/{id}','ProductoController@visibilidad');
@@ -26,3 +28,4 @@ Route::get('visibilidad/{id}','ProductoController@visibilidad');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('cliente-list-pdf','ClienteController@exportPdf')->name('cliente.pdf');

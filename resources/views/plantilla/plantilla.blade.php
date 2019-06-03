@@ -78,7 +78,7 @@
 
                 <!-- Nav Item - Charts -->
                 <li class="nav-item">
-                    <a class="nav-link" href="">
+                    <a class="nav-link" href="{{url('reportes')}}">
                     <i class="fas fa-fw fa-book"></i>
                     <span>Reportes</span></a>
                 </li>

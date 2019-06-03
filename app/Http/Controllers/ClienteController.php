@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Cliente;
 use Illuminate\Http\Request;
 use DB;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class ClienteController extends Controller
 {
@@ -13,6 +14,14 @@ class ClienteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function exportPdf()
+    {
+        $cliente = cliente::get();
+        $pdf     =  PDF::loadview('pdf.cliente',compact('cliente'));
+
+        return $pdf->download('cliente-list.pdf');
+    }
+    
     public function index()
     {
         $data = DB::table('clientes')->get();
