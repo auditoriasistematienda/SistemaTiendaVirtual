@@ -48,8 +48,8 @@ class ClienteController extends Controller
     {
         $this->validate($request,[
           'cli_dni' => 'required|unique:clientes,cli_dni|numeric|digits:8',
-          'cli_apellidos' => 'required|max:50|min:3',
-          'cli_nombres' => 'required|max:50|min:3',
+          'cli_apellidos' => 'required|max:50|min:3|alpha',
+          'cli_nombres' => 'required|max:50|min:3|alpha',
           'cli_email' => 'nullable|max:50|min:3',
           'cli_direccion' => 'nullable|min:7|max:13'
         ]);
@@ -94,8 +94,8 @@ class ClienteController extends Controller
         $cliente = Cliente::find($id);
         $this->validate($request,[
                 'cli_dni' => 'required|unique:clientes,cli_dni,'.$id.',cli_id|numeric|digits:8',
-                'cli_apellidos' => 'required|max:50|min:3',
-                'cli_nombres' => 'required|max:50|min:3'
+                'cli_apellidos' => 'required|max:50|min:3|alpha',
+                'cli_nombres' => 'required|max:50|min:3|alpha'
         ]);
 
         $cliente->update($request->all());
