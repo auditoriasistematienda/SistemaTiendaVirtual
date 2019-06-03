@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Producto;
 use Illuminate\Http\Request;
 use DB;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class ProductoController extends Controller
 {
@@ -13,6 +14,15 @@ class ProductoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function exportPdf()
+    {
+        $producto = producto::get();
+        $pdf     =  PDF::loadview('pdf.producto',compact('producto'));
+
+        return $pdf->download('producto-list.pdf');
+    }
+
+
     public function index()
     {
         $data = DB::table('productos')

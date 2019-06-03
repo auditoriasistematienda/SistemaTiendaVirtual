@@ -29,3 +29,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('cliente-list-pdf','ClienteController@exportPdf')->name('cliente.pdf');
+Route::get('producto-list-pdf','ProductoController@exportPdf')->name('producto.pdf');
