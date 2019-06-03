@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-06-2019 a las 00:05:54
+-- Tiempo de generación: 04-06-2019 a las 01:30:04
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.3
 
@@ -36,13 +36,6 @@ CREATE TABLE `categorias` (
   `cat_color` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Volcado de datos para la tabla `categorias`
---
-
-INSERT INTO `categorias` (`cat_id`, `cat_nombre`, `cat_slug`, `cat_descripcion`, `cat_color`) VALUES
-(1, 'Abarrotes', 'No se', 'Productos para el hogar.', 'Varios');
-
 -- --------------------------------------------------------
 
 --
@@ -59,18 +52,6 @@ CREATE TABLE `clientes` (
   `cli_telefono` varchar(9) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Volcado de datos para la tabla `clientes`
---
-
-INSERT INTO `clientes` (`cli_id`, `cli_dni`, `cli_apellidos`, `cli_nombres`, `cli_email`, `cli_direccion`, `cli_telefono`) VALUES
-(1, '11111111', 'MENDOZA QUISPE', 'PERCY JULIO', '', '', ''),
-(2, '45076456', 'CAMA CORREA', 'KELVIN', '', '', ''),
-(3, '25416070', 'CEPEDA BURGOS', 'REBECA LEONOR', '', '', ''),
-(4, '45076845', 'RAMIREZ SALDAÑA', 'MONICA', '', '', ''),
-(5, '70460456', 'PAZOS', 'MENTOR', NULL, 'troca', NULL),
-(6, '40545405', 'DUARTE', 'CARLOS', NULL, NULL, NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -83,20 +64,6 @@ CREATE TABLE `detalleventas` (
   `dv_cantidad` int(11) NOT NULL,
   `dv_total` decimal(6,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Volcado de datos para la tabla `detalleventas`
---
-
-INSERT INTO `detalleventas` (`dv_idventa`, `dv_idproducto`, `dv_cantidad`, `dv_total`) VALUES
-(1, 2, 2, '12.00'),
-(2, 3, 2, '11.00'),
-(3, 3, 3, '16.50'),
-(4, 3, 2, '11.00'),
-(4, 4, 1, '3.50'),
-(5, 2, 1, '6.00'),
-(5, 3, 2, '11.00'),
-(5, 4, 1, '3.50');
 
 --
 -- Disparadores `detalleventas`
@@ -130,16 +97,6 @@ CREATE TABLE `productos` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Volcado de datos para la tabla `productos`
---
-
-INSERT INTO `productos` (`prod_id`, `cat_id`, `prod_nombre`, `prod_slug`, `prod_descripcion`, `prod_extract`, `prod_precio`, `prod_imagen`, `prod_visible`, `prod_stock`, `created_at`, `updated_at`) VALUES
-(2, 1, 'Atún Florida Filete', '', '', '', '6.00', '', 0, 32, '2019-05-27 03:24:23', '0000-00-00 00:00:00'),
-(3, 1, 'Atún Fanny Trozos', '', '', '', '5.50', '', 0, 63, '2019-05-27 03:24:23', '0000-00-00 00:00:00'),
-(4, 1, 'Arroz Costeño 1kg', '', '', '', '3.50', '', 0, 60, '2019-05-27 03:24:23', '0000-00-00 00:00:00'),
-(5, 1, 'condon', 'condon', 'condon', 'condon', '1.00', 'descarga.jpg', 1, 100, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -181,17 +138,6 @@ CREATE TABLE `ventas` (
   `ven_total` decimal(6,2) NOT NULL,
   `ven_idusuario` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Volcado de datos para la tabla `ventas`
---
-
-INSERT INTO `ventas` (`ven_id`, `ven_idcliente`, `ven_fecha`, `ven_envio`, `ven_total`, `ven_idusuario`) VALUES
-(1, 1, '2019-06-02', NULL, '12.00', NULL),
-(2, 4, '2019-06-02', NULL, '11.00', NULL),
-(3, 1, '2019-06-02', NULL, '16.50', 75200120),
-(4, 3, '2019-06-02', NULL, '14.50', 70345671),
-(5, 3, '2019-06-02', NULL, '20.50', 70345671);
 
 --
 -- Índices para tablas volcadas
@@ -246,25 +192,25 @@ ALTER TABLE `ventas`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `cli_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `cli_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `prod_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `prod_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `ventas`
 --
 ALTER TABLE `ventas`
-  MODIFY `ven_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ven_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas
