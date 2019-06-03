@@ -17,8 +17,7 @@ class ProductoController extends Controller
     public function exportPdf()
     {
         $producto = producto::get();
-        $pdf     =  PDF::loadview('pdf.producto',compact('producto'));
-
+        $pdf  =  PDF::loadview('pdf.producto',compact('producto'));
         return $pdf->download('producto-list.pdf');
     }
 
@@ -51,10 +50,10 @@ class ProductoController extends Controller
     public function store(Request $request)
     {
       $this->validate($request,[
-        'prod_nombre' => 'required|max:50',
-        'prod_slug' => 'required|max:50' ,
-        'prod_descripcion' => 'required|max:50' ,
-        'prod_extract' => 'required|max:50' ,
+        'prod_nombre' => 'required|min:3|max:50|alpha',
+        'prod_slug' => 'required|min:3|max:50|alpha' ,
+        'prod_descripcion' => 'required|min:3|max:50|alpha' ,
+        'prod_extract' => 'required|min:3|max:50|alpha' ,
         'prod_precio' => 'required|numeric',
         'prod_stock' => 'required|numeric'
       ]);

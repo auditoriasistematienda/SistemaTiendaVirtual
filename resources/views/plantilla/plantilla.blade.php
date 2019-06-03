@@ -52,7 +52,7 @@
                 <!-- Nav Item - Pages Collapse Menu -->
                 <li class="nav-item">
                   <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-users"></i>
+                    <i class="fas fa-fw fa-tools"></i>
                     <span>Mantenimiento</span>
                   </a>
                   <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -69,7 +69,7 @@
                 <!-- Nav Item - Charts -->
                 <li class="nav-item">
                     <a class="nav-link" href="{{url('ventas')}}">
-                    <i class="fas fa-fw fa-book"></i>
+                    <i class="fas fa-fw fa-money-bill-alt"></i>
                     <span>Ventas</span></a>
                 </li>
 
@@ -79,7 +79,7 @@
                 <!-- Nav Item - Charts -->
                 <li class="nav-item">
                     <a class="nav-link" href="{{url('reportes')}}">
-                    <i class="fas fa-fw fa-book"></i>
+                    <i class="fas fa-fw fa-file-pdf"></i>
                     <span>Reportes</span></a>
                 </li>
                                 <!-- Divider -->

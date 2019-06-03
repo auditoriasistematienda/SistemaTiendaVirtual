@@ -45,13 +45,13 @@
             <input type="text" value="{{$cliente->cli_direccion}}" name="cli_direccion" class="form-control">
             </div>
         </div>
-        <div class="col-xl-2 col-md-20">
+        <div class="col-xl-12 col-md-6">
                 <input type="submit" class="btn btn-warning" value="Modificar">
                  <a href="{{url('cliente')}}" class="btn btn-danger">Cancelar</a>
                 </div>            
-               </div>
-             </form>
-            </div>
-        </table>
-    </section>
+        </div>
+            </form>
+        </div>
+    </table>
+</section>
 @endsection

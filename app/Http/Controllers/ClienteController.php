@@ -95,7 +95,9 @@ class ClienteController extends Controller
         $this->validate($request,[
                 'cli_dni' => 'required|unique:clientes,cli_dni,'.$id.',cli_id|numeric|digits:8',
                 'cli_apellidos' => 'required|max:50|min:3|alpha',
-                'cli_nombres' => 'required|max:50|min:3|alpha'
+                'cli_nombres' => 'required|max:50|min:3|alpha',
+                'cli_direccion' => 'nullable',
+                'cli_email' => 'nullable'
         ]);
 
         $cliente->update($request->all());
