@@ -50,10 +50,10 @@ class ProductoController extends Controller
     public function store(Request $request)
     {
       $this->validate($request,[
-        'prod_nombre' => 'required|min:3|max:50|alpha',
-        'prod_slug' => 'required|min:3|max:50|alpha' ,
-        'prod_descripcion' => 'required|min:3|max:50|alpha' ,
-        'prod_extract' => 'required|min:3|max:50|alpha' ,
+        'prod_nombre' => 'required|min:3|max:50',
+        'prod_slug' => 'required|min:3|max:50' ,
+        'prod_descripcion' => 'required|min:3|max:50' ,
+        'prod_extract' => 'required|min:3|max:50' ,
         'prod_precio' => 'required|numeric',
         'prod_stock' => 'required|numeric'
       ]);

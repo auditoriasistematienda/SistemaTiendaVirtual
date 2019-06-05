@@ -21,7 +21,7 @@
 		<table class="table table-hover table-bordered table-sm" id="dataTable" width="100%" cellspacing="0"  >
 			<thead>
 				<tr>
-					<th >Nombre del Cliente</th>
+					<th >Codigo de Cliente</th>
 					<th>Total de Pago</th>
 					<th>Fecha </th>	
 				</tr>

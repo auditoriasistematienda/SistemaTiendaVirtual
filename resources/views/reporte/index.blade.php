@@ -63,7 +63,7 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><a href="{{route('stock.pdf')}}" target="_blank" class="btn btn-danger btn-sm"><i class="fa fa-file-pdf"> DESCARGAR PDF </i></a>     </td>
+                        <td><a href="" target="_blank" class="btn btn-danger btn-sm"><i class="fa fa-file-pdf"> DESCARGAR PDF </i></a>     </td>
                     </tr>
                 </tbody>
             </table>

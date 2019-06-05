@@ -29,13 +29,13 @@
         <div class="col-xl-5 col-md-6">
             <div class="form-group">
                 <label for="">Nombre *</label>
-                <input type="text" name="prod_nombre" class="form-control" maxlength="50" required value="{{old('prod_nombre')}}">
+                <input type="text" name="prod_nombre" class="form-control" maxlength="50" pattern="[A-Za-z A-Za-z]+" required value="{{old('prod_nombre')}}">
             </div>
         </div>
         <div class="col-xl-3 col-md-6">
             <div class="form-group">
                 <label for="">Abreviatura del Producto *</label>
-                <input type="text" name="prod_slug" class="form-control" maxlength="50" required value="{{old('prod_nombre')}}">
+                <input type="text" name="prod_slug" class="form-control" maxlength="50" pattern="[a-z]+" title="Ingresar todo en minuscula y junto.   e.j: galletaoreo" required value="{{old('prod_nombre')}}">
             </div>
         </div>
         <div class="col-xl-5 col-md-6">
@@ -47,25 +47,25 @@
         <div class="col-xl-5 col-md-6">
             <div class="form-group">
                 <label for="">Descripcion Corta del Producto *</label>
-                <input type="text" name="prod_extract" class="form-control" maxlength="50" required value="{{old('prod_nombre')}}">
+                <input type="text" name="prod_extract" class="form-control" maxlength="50" pattern="[A-Za-z A-Za-z]+" required value="{{old('prod_nombre')}}">
             </div>
         </div>
         <div class="col-xl-2 col-md-3">
             <div class="form-group">
                 <label for="">Precio *</label>
-                <input type="text" name="prod_precio" class="form-control" maxlength="50" required value="{{old('prod_precio')}}" >
+                <input type="text" name="prod_precio" id="precio" class="form-control" maxlength="9" required value="{{old('prod_precio')}}" >
             </div>
         </div>
         <div class="col-xl-5 col-md-6">
             <div class="form-group">
                 <label for="">Imagen *</label>
-                <input type="text" name="prod_imagen" class="form-control" maxlength="2000" required value="{{old('prod_imagen')}}">
+                <input type="URL" name="prod_imagen" class="form-control" maxlength="2000" required value="{{old('prod_imagen')}}">
             </div>
         </div>
         <div class="col-xl-2 col-md-3">
             <div class="form-group">
                 <label for="">Stock *</label>
-                <input type="text" name="prod_stock" class="form-control" maxlength="4" required value="{{old('prod_stock')}}" >
+                <input type="text" name="prod_stock" id="stock" class="form-control" maxlength="4" required value="{{old('prod_stock')}}" >
             </div>
         </div>
         <div class="col-xl-12 my-4">
@@ -76,4 +76,23 @@
         </div>
     </div>
 </form>
+<script >
+    function el(el) {
+  return document.getElementById(el);
+}
+
+el('precio').addEventListener('input',function() {
+  var val = this.value;
+  this.value = val.replace(/\-/,'');
+}); 
+    function el(el) {
+  return document.getElementById(el);
+}
+
+el('stock').addEventListener('input',function() {
+  var val = this.value;
+  this.value = val.replace(/\D|\-/,'');
+}); 
+</script>
+
 @endsection
