@@ -53,7 +53,7 @@
         <div class="col-xl-2 col-md-3">
             <div class="form-group">
                 <label for="">Precio *</label>
-                <input type="text" name="prod_precio" id="precio" class="form-control" maxlength="9" required value="{{old('prod_precio')}}" >
+                <input type="text" name="prod_precio" id="precio" class="form-control"  maxlength="9" required value="{{old('prod_precio')}}" >
             </div>
         </div>
         <div class="col-xl-5 col-md-6">
@@ -65,7 +65,7 @@
         <div class="col-xl-2 col-md-3">
             <div class="form-group">
                 <label for="">Stock *</label>
-                <input type="text" name="prod_stock" id="stock" class="form-control" maxlength="4" required value="{{old('prod_stock')}}" >
+                <input type="text" name="prod_stock" id="stock" class="form-control" maxlength="4" onKeyPress="return soloNumeros(event)" onKeyUp="pierdeFoco(this)" required value="{{old('prod_stock')}}" >
             </div>
         </div>
         <div class="col-xl-12 my-4">
@@ -93,6 +93,19 @@ el('stock').addEventListener('input',function() {
   var val = this.value;
   this.value = val.replace(/\D|\-/,'');
 }); 
+
+
+function soloNumeros(e) {
+   var key = window.Event ? e.which : e.keyCode;
+   return ((key >= 48 && key <= 57) ||(key==8))
+ }
+ 
+ function pierdeFoco(e){
+    var valor = e.value.replace(/^0*/, '');
+    e.value = valor;
+ }
 </script>
+
+
 
 @endsection

@@ -30,13 +30,13 @@
         <div class="col-xl-5 col-md-6">
             <div class="form-group">
                 <label for="">Nombre *</label>
-                <input type="text" name="prod_nombre" class="form-control" maxlength="50" readonly value="{{$producto->prod_nombre}}">
+                <input type="text" name="prod_nombre" class="form-control" maxlength="50" pattern="[A-Za-z A-Za-z]+" readonly value="{{$producto->prod_nombre}}">
             </div>
         </div>
         <div class="col-xl-3 col-md-6">
             <div class="form-group">
                 <label for="">Abreviatura del Producto *</label>
-                <input type="text" name="prod_slug" class="form-control" maxlength="50" value="{{$producto->prod_slug}}">
+                <input type="text" name="prod_slug" class="form-control" pattern="[a-z]+" readonly title="Ingresar todo en minuscula y junto.   e.j: galletaoreo" maxlength="50" value="{{$producto->prod_slug}}">
             </div>
         </div>
         <div class="col-xl-5 col-md-6">
@@ -48,25 +48,25 @@
         <div class="col-xl-5 col-md-6">
             <div class="form-group">
                 <label for="">Descripcion Corta del Producto *</label>
-                <input type="text" name="prod_extract" class="form-control" maxlength="50" required value="{{$producto->prod_extract}}">
+                <input type="text" name="prod_extract" class="form-control" maxlength="50" pattern="[A-Za-z A-Za-z]+" required value="{{$producto->prod_extract}}">
             </div>
         </div>
         <div class="col-xl-2 col-md-3">
             <div class="form-group">
                 <label for="">Precio *</label>
-                <input type="text" name="prod_precio" class="form-control" maxlength="50" required value="{{$producto->prod_precio}}" >
+                <input type="text" name="prod_precio" id="precio" class="form-control" maxlength="9" required value="{{$producto->prod_precio}}" >
             </div>
         </div>
         <div class="col-xl-5 col-md-6">
             <div class="form-group">
                 <label for="">Imagen *</label>
-                <input type="text" name="prod_imagen" class="form-control" maxlength="2000" value="{{$producto->prod_imagen}}">
+                <input type="url" name="prod_imagen" class="form-control" maxlength="2000" readonly value="{{$producto->prod_imagen}}">
             </div>
         </div>
         <div class="col-xl-2 col-md-3">
             <div class="form-group">
                 <label for="">Stock *</label>
-                <input type="text" name="prod_stock" class="form-control" maxlength="4" required value="{{$producto->prod_stock}}" >
+                <input type="text" name="prod_stock" id="stock" class="form-control" maxlength="4" onKeyPress="return soloNumeros(event)" onKeyUp="pierdeFoco(this)" required value="{{$producto->prod_stock}}" >
             </div>
         </div>
         <div class="col-xl-12 my-4">
@@ -77,4 +77,33 @@
         </div>
     </div>
 </form>
+<script >
+    function el(el) {
+  return document.getElementById(el);
+}
+
+el('precio').addEventListener('input',function() {
+  var val = this.value;
+  this.value = val.replace(/\-/,'');
+}); 
+    function el(el) {
+  return document.getElementById(el);
+}
+
+el('stock').addEventListener('input',function() {
+  var val = this.value;
+  this.value = val.replace(/\D|\-/,'');
+}); 
+
+
+function soloNumeros(e) {
+   var key = window.Event ? e.which : e.keyCode;
+   return ((key >= 48 && key <= 57) ||(key==8))
+ }
+ 
+ function pierdeFoco(e){
+    var valor = e.value.replace(/^0*/, '');
+    e.value = valor;
+ }
+</script>
 @endsection
