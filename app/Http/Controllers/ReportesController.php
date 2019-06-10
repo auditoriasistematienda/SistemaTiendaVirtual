@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Reportes;
 use Illuminate\Http\Request;
 
+
 class ReportesController extends Controller
 {
     /**
@@ -14,7 +15,7 @@ class ReportesController extends Controller
      */
     public function index()
     {
-        
+
         return view('reporte.index');
     }
 

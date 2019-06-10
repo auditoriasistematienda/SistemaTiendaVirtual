@@ -21,7 +21,7 @@ class ClienteController extends Controller
 
         return $pdf->download('cliente-list.pdf');
     }
-    
+
     public function index()
     {
         $data = DB::table('clientes')->get();
@@ -48,10 +48,10 @@ class ClienteController extends Controller
     {
         $this->validate($request,[
           'cli_dni' => 'required|unique:clientes,cli_dni|numeric|digits:8',
-          'cli_apellidos' => 'required|max:50|min:3|alpha',
-          'cli_nombres' => 'required|max:50|min:3|alpha',
+          'cli_apellidos' => 'required|max:50|min:3|regex:/^[\pL\s\-]+$/u',
+          'cli_nombres' => 'required|max:50|min:3|regex:/^[\pL\s\-]+$/u',
           'cli_email' => 'nullable|max:50|min:3',
-          'cli_direccion' => 'nullable|min:7|max:13'
+          'cli_direccion' => 'nullable|min:3|max:50'
         ]);
         $data = $request->all();
         $cliente = Cliente::create($data);
@@ -78,7 +78,7 @@ class ClienteController extends Controller
     public function edit($id)
     {
         $cliente = Cliente::findOrFail($id);
-     
+
         return view('cliente.edit',['cliente'=>$cliente]);
     }
 
@@ -112,13 +112,10 @@ class ClienteController extends Controller
      */
     public function destroy(Request $request, $id)
     {
-        
+
         $cliente = Cliente::destroy($id);
-        
-        
+
+
         return redirect()->route('cliente.index')->with('status', 'Cliente eliminado correctamente!');
     }
 }
-
-
-
