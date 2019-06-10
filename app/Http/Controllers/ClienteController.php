@@ -47,7 +47,7 @@ class ClienteController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-          'cli_dni' => 'required|unique:clientes,cli_dni|numeric|digits:8',
+          'cli_dni' => 'required|unique:clientes,cli_dni|numeric|digits:8|between:00000001,99999999',
           'cli_apellidos' => 'required|max:50|min:3|regex:/^[\pL\s\-]+$/u',
           'cli_nombres' => 'required|max:50|min:3|regex:/^[\pL\s\-]+$/u',
           'cli_email' => 'nullable|max:50|min:3',
