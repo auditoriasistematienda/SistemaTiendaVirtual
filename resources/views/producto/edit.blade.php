@@ -42,19 +42,19 @@
         <div class="col-xl-5 col-md-6">
             <div class="form-group">
                 <label for="">Descripcion *</label>
-                <input type="text" name="prod_descripcion" class="form-control" maxlength="50" required value="{{$producto->prod_descripcion}}">
+                <input type="text" name="prod_descripcion" class="form-control" maxlength="50" onkeypress="return letrasynumeros(event)" onKeyUp="pierdeFoco(this)"  required value="{{$producto->prod_descripcion}}">
             </div>
         </div>
         <div class="col-xl-5 col-md-6">
             <div class="form-group">
                 <label for="">Descripcion Corta del Producto *</label>
-                <input type="text" name="prod_extract" class="form-control" maxlength="50" pattern="[A-Za-z A-Za-z]+" required value="{{$producto->prod_extract}}">
+                <input type="text" name="prod_extract" class="form-control" maxlength="50" onkeypress="return letrasynumeros(event)" onKeyUp="pierdeFoco(this)" required value="{{$producto->prod_extract}}">
             </div>
         </div>
         <div class="col-xl-2 col-md-3">
             <div class="form-group">
                 <label for="">Precio *</label>
-                <input type="text" name="prod_precio" id="precio" class="form-control" maxlength="9" required value="{{$producto->prod_precio}}" >
+                <input type="text" name="prod_precio" id="precio" class="form-control" onkeypress="return solonumeros(event)"  maxlength="9" required value="{{$producto->prod_precio}}" >
             </div>
         </div>
         <div class="col-xl-5 col-md-6">
@@ -95,7 +95,45 @@ el('stock').addEventListener('input',function() {
   this.value = val.replace(/\D|\-/,'');
 }); 
 
+///////////////////
+    function letrasynumeros(e){
+       key = e.keyCode || e.which;
+       tecla = String.fromCharCode(key).toLowerCase();
+       letras = " áéíóúabcdefghijklmnñopqrstuvwxyz0123456789";
+       especiales = "8-37-39-46";
 
+       tecla_especial = false
+       for(var i in especiales){
+            if(key == especiales[i]){
+                tecla_especial = true;
+                break;
+            }
+        }
+
+        if(letras.indexOf(tecla)==-1 && !tecla_especial){
+            return false;
+        }
+    }
+////////////////////////
+    function solonumeros(e){
+       key = e.keyCode || e.which;
+       tecla = String.fromCharCode(key).toLowerCase();
+       letras = "0123456789.";
+       especiales = "8-37-39-46";
+
+       tecla_especial = false
+       for(var i in especiales){
+            if(key == especiales[i]){
+                tecla_especial = true;
+                break;
+            }
+        }
+
+        if(letras.indexOf(tecla)==-1 && !tecla_especial){
+            return false;
+        }
+    }
+////////////////////
 function soloNumeros(e) {
    var key = window.Event ? e.which : e.keyCode;
    return ((key >= 48 && key <= 57) ||(key==8))
